@@ -1,0 +1,14 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(grass.jpeg);
+}
+
+.chaff{
+    position: absolute;
+}
+
+.buttonTest{
+    width: 100px;
+    height: 50px;
+}
