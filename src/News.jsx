@@ -12,13 +12,12 @@ export default class News extends React.Component {
             data: this.data
         }
     }
-
     get list() {
         // eslint-disable-next-line no-sequences
         return this.state.data.map((_, i) => <Element key={i} img={this.state.data[i][0]} name={this.state.data[i][1]} desc={this.state.data[i][2]}/>);
     }
 /*
-<Element key={i} >News {_}</Element>
+<Element key={i} >News {_}</Element>А
 */
     add(el) {
         // this.data.push(el)
