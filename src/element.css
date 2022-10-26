@@ -1,0 +1,17 @@
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+.content--news
+{
+    padding: 1rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content--news_image{
+    align-items: center;
+}
