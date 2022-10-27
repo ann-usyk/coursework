@@ -1,3 +1,6 @@
+.main-trash{
+    cursor: url("cursor.png"),auto;
+}
 
 .chaff{
     position: absolute;

@@ -21,7 +21,7 @@ const ClearTrash =({active,setActive})=>{
         }
     }
     return (
-        <div className="main">
+        <div className="main-trash">
             <div className="collectChaff">
                 <img className="stack chaff" src={stack} onClick={clearChaff}  alt=""/>
                 <img className="koserv chaff" src={koserv} onClick={clearChaff} alt=""/>
