@@ -5,6 +5,8 @@ import Home from "./Home";
 import {loaded} from "./ClearTrash"
 import {Routes,Route} from "react-router-dom";
 import News from "./News";
+import CarouselBox from "./CarouselBox";
+import {Error404} from "./Error404";
 
 function App() {
 
@@ -14,8 +16,9 @@ function App() {
             <Route path="/" element={<Header/>}>
                 <Route index element={<Home/>}/>
                 <Route path="clearTrash" element={<ClearTrash/>}/>
-                <Route path="*" element={<div>Test</div>}/>
                 <Route path="news" element={<News/>}/>
+                <Route path="carousel" element={<CarouselBox/>}/>
+                <Route path="*" element={<Error404/>}/>
             </Route>
         </Routes>
     </div>

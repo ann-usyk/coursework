@@ -14,7 +14,7 @@ const Header = ()=>{
                         <NavLink end className='button-menu ' to={'/'}>Головна</NavLink>
                         <NavLink to="/clearTrash" className='button-menu  '>Інтерактив</NavLink>
                         <NavLink to="/news" className='button-menu '>Новини</NavLink>
-                        <NavLink to="/gallery" className='button-menu '>Фотогалерея</NavLink>
+                        <NavLink to="/carousel" className='button-menu '>Фотогалерея</NavLink>
                         <NavLink to="/activism" className='button-menu '>Zero waste</NavLink>
                     </div>
                     <div style={{display:'flex',flexDirection:'row'}}>
