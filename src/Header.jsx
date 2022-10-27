@@ -12,10 +12,10 @@ const Header = ()=>{
                     <div className='div-link' style={{display:'flex',flexDirection:'row', justifyContent:'space-around'}}>
                         <button className='button-menu button-logo'>ECO-Army</button>
                         <NavLink end className='button-menu ' to={'/'}>Головна</NavLink>
-                        <NavLink to="/clearTrash" className='button-menu  '>Про нас</NavLink>
+                        <NavLink to="/clearTrash" className='button-menu  '>Інтерактив</NavLink>
                         <NavLink to="/news" className='button-menu '>Новини</NavLink>
                         <NavLink to="/gallery" className='button-menu '>Фотогалерея</NavLink>
-                        <NavLink to="/activism" className='button-menu '>Активізм</NavLink>
+                        <NavLink to="/activism" className='button-menu '>Zero waste</NavLink>
                     </div>
                     <div style={{display:'flex',flexDirection:'row'}}>
                         <div ><Home className='div-svg'/></div>
