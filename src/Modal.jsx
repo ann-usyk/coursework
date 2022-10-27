@@ -5,7 +5,7 @@ const Modal =({active,setActive})=>{
         <div className={active ? "modal active" : "modal"} onClick={() => (setActive(false))}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 <h1>Зовсім не складно, чи не так?</h1>
-                <h5 align="center">Дякуюємо, що прибрав усе сміття та зробив вагомий внесок у чистоту довкілля. Ти молодець, роби так завжди!</h5>
+                <h4 align="center">Дякуємо, що прибрав усе сміття та зробив вагомий внесок у чистоту довкілля.<br/> Ти молодець, роби так завжди!</h4>
             </div>
         </div>
     )

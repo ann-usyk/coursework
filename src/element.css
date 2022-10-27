@@ -10,8 +10,21 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
 }
 .content--news_image{
-    align-items: center;
+    width:80%
+}
+h2{
+    text-decoration: none;
+    margin: 0;
+    text-overflow: ellipsis;
+}
+.truncate{
+    -webkit-line-clamp: 3; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden;
 }
