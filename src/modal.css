@@ -1,4 +1,4 @@
-.modal {
+.modal-head {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0,0,0,0.4);
@@ -10,10 +10,11 @@
     justify-content: center;
     transform: scale(0);
     text-align: center;
+    transition: 1s;
 }
-.modal.active{
+.modal-head.active{
     transform: scale(1);
-    transition: 0.4s;
+    transition: 1s;
 }
 
 .modal__content{

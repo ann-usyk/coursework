@@ -7,5 +7,6 @@
 .image--carbox{
     width: 100%;
     height: 90vh;
+    object-fit: cover;
     overflow: hidden;
 }

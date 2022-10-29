@@ -26,7 +26,10 @@ const ClearTrash =({active,setActive})=>{
                 <img className="stack chaff" src={stack} onClick={clearChaff}  alt=""/>
                 <img className="koserv chaff" src={koserv} onClick={clearChaff} alt=""/>
                 <img className="bottle chaff" src={bottle} onClick={clearChaff} alt=""/>
-                <Modal active={modalActive} setActive={setModalActive} />
+                <Modal active={modalActive} setActive={setModalActive}>
+                    <h1>Зовсім не складно, чи не так?</h1>
+                    <h4 align="center">Дякуємо, що прибрав усе сміття та зробив вагомий внесок у чистоту довкілля.<br/> Ти молодець, роби так завжди!</h4>
+                </Modal>
             </div>
         </div>
     )
