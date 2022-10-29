@@ -5,8 +5,11 @@ import Home from "./Home";
 import {loaded} from "./ClearTrash"
 import {Routes,Route} from "react-router-dom";
 import News from "./News";
-import CarouselBox from "./CarouselBox";
+/*
+import SharedCarousel from "./CarouselBox";
+*/
 import {Error404} from "./Error404";
+import CarouselBox from "./CarouselBox";
 
 function App() {
 
