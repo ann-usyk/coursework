@@ -10,3 +10,8 @@
     object-fit: cover;
     overflow: hidden;
 }
+.carousel-box h5
+{
+    font-size: 1rem;
+    padding-top: 10px;
+}
