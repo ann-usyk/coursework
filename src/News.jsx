@@ -12,7 +12,7 @@ export default class News extends React.Component {
             "https://zerowaste.org.ua/wp-content/uploads/2022/10/sortuvalny_korabel_lviv.png",
             "Корабель для сортування у Львові",
             "Майже 66 кг відходів накопичив сортувальний корабель, який на початку вересня ГО Zero Waste Lviv у співпраці з Управлінням екології ЛМР встановили у Замарстинівському парку. Вперше зібрану вторсировину вивантажили 20 жовтня."],
-        ["https://www.defense.gov/About/Biographies/Biography/Article/2522687/lloyd-j-austin-iii/",
+        ["prynczypy-zero-waste-v-ukrayinskyh-shkolah",
             "https://zerowaste.org.ua/wp-content/uploads/2022/09/zero-waste-dlya-ditej.png",
             "Принципи Zero Waste в українських школах",
             "Замість яблучок рахуємо кількість компосту. Харківські екоактивісти випустили посібник для вчителів із zero waste задачами та завданнями для дітей."],

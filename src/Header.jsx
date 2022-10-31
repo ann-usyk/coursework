@@ -18,8 +18,26 @@ export default class Header extends React.Component{
 
         return(
             <div>
-                <nav>
-                    <div className='div-header'>
+                <div className="burger-button-container">
+                    <div id="burger-button " className="button-logo-burger" onClick={()=>{
+                        document.getElementById("burger-panel").classList.toggle("show-panel")
+                    }} >ECO-Army</div>
+                </div>
+                <nav id="burger-panel">
+                    <div className='div-header' onClick={()=>{
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+                                let dropdowns = document.getElementsByClassName("dropdown-content");
+                                let i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    let openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    }}>
                         <div className='div-link' style={{display:'flex',flexDirection:'row', justifyContent:'space-around'}}>
                             <button className='button-menu button-logo'>ECO-Army</button>
                             <NavLink end className='button-menu ' to={'/'}>Головна</NavLink>
@@ -39,17 +57,14 @@ export default class Header extends React.Component{
                         </div>
                         <div style={{display:'flex',flexDirection:'row'}}>
                             <div ><Home className='div-svg'/></div>
-                            <button className='button-login' onClick={()=>{
+                           {/* <button className='button-login' onClick={()=>{
                                 console.log("OK")
                                 this.setState(({
                                     ...this.state,
                                     active:true,
                                     setActive:true
-                                    })
-                                )
-                            }
-
-                            }>Гість</button>
+                                    }))}
+                            }>Гість</button>*/}
                             <div style={{paddingRight:"30px"}}></div>
                             <Modal active={this.active} setActive={this.setActive}>
                                 <input inputMode={"email"}/>

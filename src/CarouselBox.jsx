@@ -1,4 +1,4 @@
-import React from "react";gi
+import React from "react";
 import './carousel.css'
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';

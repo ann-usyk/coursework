@@ -12,6 +12,7 @@ import ZeroWaste1 from "./news/ZeroWaste1";
 import ZeroWaste2 from "./news/ZeroWaste2";
 import ZeroWaste3 from "./news/ZeroWaste3";
 import News1 from "./news/news1";
+import News2 from "./news/news2";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="alliance" element={<ZeroWaste1/>}/>
                 <Route path="what_we_do" element={<ZeroWaste2/>}/>
                 <Route path="cities" element={<ZeroWaste3/>}/>
+                <Route path="prynczypy-zero-waste-v-ukrayinskyh-shkolah" element={<News2/>}/>
                 <Route path="korabel-dlya-sortuvannya-u-lvovi-rezultaty-roboty" element={<News1/>}/>
                 <Route path="*" element={<Error404 />}/>
             </Route>
