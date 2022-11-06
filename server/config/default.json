@@ -1,0 +1,4 @@
+{
+  "serverPort" :3001,
+  "dbUrl": "mongodb+srv://ann_au:NA55yEsvifg2xAG7@cluster0.mougenl.mongodb.net/?retryWrites=true&w=majority"
+}

@@ -14,6 +14,7 @@ export default class Header extends React.Component{
             setActive:this.setActive
         }
     }
+
     render() {
 
         return(
@@ -45,9 +46,9 @@ export default class Header extends React.Component{
                             <NavLink to="/news" className='button-menu '>Новини</NavLink>
                             <NavLink to="/carousel" className='button-menu '>Фотогалерея</NavLink>
                             <div className="dropdown ">
-                                <button onClick={()=>{
-                                    document.getElementById("myDropdown").classList.toggle("show")
-                                }} className="dropbtn">Zero waste</button>
+                                <button onClick={()=>{ document.getElementById("myDropdown").classList.toggle("show")}} className="dropbtn">
+                                    Zero waste
+                                </button>
                                 <div id="myDropdown" className="dropdown-content">
                                     <NavLink to="/alliance" className='button-menu '>Zero Waste Alliance</NavLink>
                                     <NavLink to="/what_we_do" className='button-menu '>Що ми робимо</NavLink>

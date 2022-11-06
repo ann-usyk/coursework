@@ -5,5 +5,10 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-rows: 25rem;
     grid-gap: 1rem;
+
+}
+.main-news a {
+    text-decoration: none !important;
+    color: black !important;
 }
 

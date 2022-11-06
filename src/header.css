@@ -10,6 +10,7 @@ nav{
 }
 .burger-button-container{
     height: 0;
+    font-size: 0;
 }
 .div-header
 {
@@ -131,9 +132,9 @@ img{
 
 @media screen and (max-width: 1070px) {
     nav{
-        width: 300px;
+        width: 95%;
         height: 100vh;
-        left: -300px;
+        left: -95%;
         background-color: rgba(0,77,2,0.61);
         position: fixed;
         z-index: 1;
@@ -186,7 +187,7 @@ img{
         border: 0;
         border-radius: 0;
         background: transparent;
-        color: #fff;
+        color: #fff ;
         font-family: "Open Sans", serif;
         font-size: 24px;
         font-weight: 300;
@@ -261,4 +262,7 @@ img{
     }
 
     .show {display:block;}
+}
+.div-link a {
+    color: white !important;
 }

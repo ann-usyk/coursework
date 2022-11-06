@@ -5,14 +5,17 @@ import Element from "./Element";
 export default class News extends React.Component {
 
     data = [
-        ["alliance","https://zerowaste.org.ua/wp-content/uploads/2022/04/277537537_5213604108703222_5143165304986691207_n-1200x800.jpeg",
+        ["/alliance","https://zerowaste.org.ua/wp-content/uploads/2022/04/277537537_5213604108703222_5143165304986691207_n-1200x800.jpeg",
             "Нуль відходів і 100% турботи",
             "Що роблять організації-члени Zero Waste Alliance Ukraine під час війни"],
-        ["korabel-dlya-sortuvannya-u-lvovi-rezultaty-roboty",
+        ["/korabel-dlya-sortuvannya-u-lvovi-rezultaty-roboty",
             "https://zerowaste.org.ua/wp-content/uploads/2022/10/sortuvalny_korabel_lviv.png",
             "Корабель для сортування у Львові",
             "Майже 66 кг відходів накопичив сортувальний корабель, який на початку вересня ГО Zero Waste Lviv у співпраці з Управлінням екології ЛМР встановили у Замарстинівському парку. Вперше зібрану вторсировину вивантажили 20 жовтня."],
-        ["prynczypy-zero-waste-v-ukrayinskyh-shkolah",
+        ["/alliance","https://zerowaste.org.ua/wp-content/uploads/2022/04/277537537_5213604108703222_5143165304986691207_n-1200x800.jpeg",
+            "Нуль відходів і 100% турботи",
+            "Що роблять організації-члени Zero Waste Alliance Ukraine під час війни"],
+        ["/prynczypy-zero-waste-v-ukrayinskyh-shkolah",
             "https://zerowaste.org.ua/wp-content/uploads/2022/09/zero-waste-dlya-ditej.png",
             "Принципи Zero Waste в українських школах",
             "Замість яблучок рахуємо кількість компосту. Харківські екоактивісти випустили посібник для вчителів із zero waste задачами та завданнями для дітей."],
@@ -45,9 +48,7 @@ export default class News extends React.Component {
         // eslint-disable-next-line no-sequences
         return this.state.data.map((_, i) => <Element reference={this.state.data[i][0]} key={i} img={this.state.data[i][1]} name={this.state.data[i][2]} desc={this.state.data[i][3]}/>);
     }
-/*
-<Element key={i} >News {_}</Element>А
-*/
+
     add(el) {
         // this.data.push(el)
         this.setState(({
@@ -68,8 +69,10 @@ export default class News extends React.Component {
             <div>
                 <main className='main-news' >
                     {this.list}
+                    <Element name="Додати новину" img="https://static.thenounproject.com/png/1555710-200.png" reference="/add_news">
+                    </Element>
                 </main>
-                <button onClick={() => this.Generation()}>add</button>
+                <button >add</button>
             </div>
         )
     }
