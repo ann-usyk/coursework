@@ -1,20 +1,18 @@
 import './App.css';
-import ClearTrash from "./ClearTrash";
+import ClearTrash from "./InteractivePage/ClearTrash";
 import React from "react";
-import Header from "./Header";
-import Home from "./Home";
-import {loaded} from "./ClearTrash"
+import Header from "./HeaderPage/Header";
+import Home from "./HomePage/Home";
+import {loaded} from "./InteractivePage/ClearTrash"
 import {Routes, Route} from "react-router-dom";
-import News from "./News";
-import {Error404} from "./Error404";
-import CarouselBox from "./CarouselBox";
-import ZeroWaste1 from "./news/ZeroWaste1";
-import ZeroWaste2 from "./news/ZeroWaste2";
-import ZeroWaste3 from "./news/ZeroWaste3";
-import News1 from "./news/news1";
-import News2 from "./news/news2";
-import AddNews from "./AddNews";
-import ViewNews from "./ViewNews";
+import News from "./NewsPages/News";
+import {Error404} from "./ErrorPage/Error404";
+import CarouselBox from "./PhotoGalleryPage/CarouselBox";
+import ZeroWaste1 from "./NewsPages/ZeroWaste1";
+import ZeroWaste2 from "./NewsPages/ZeroWaste2";
+import ZeroWaste3 from "./NewsPages/ZeroWaste3";
+import AddNews from "./NewsPages/AddNews";
+import ViewNews from "./NewsPages/ViewNews";
 import Toast from "./toast";
 
 function App() {
@@ -34,8 +32,6 @@ function App() {
                     <Route path="/alliance" element={<ZeroWaste1/>}/>
                     <Route path="/what_we_do" element={<ZeroWaste2/>}/>
                     <Route path="/cities" element={<ZeroWaste3/>}/>
-                    <Route path="/prynczypy-zero-waste-v-ukrayinskyh-shkolah" element={<News2/>}/>
-                    <Route path="/korabel-dlya-sortuvannya-u-lvovi-rezultaty-roboty" element={<News1/>}/>
                     <Route path="*" element={<Error404 />}/>
                 </Route>
             </Routes>
