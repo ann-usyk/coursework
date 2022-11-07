@@ -2,6 +2,7 @@ import './news.css'
 import React from "react";
 import Element from "./Element";
 import {NewsService} from "./newsService";
+import Footer from "./Footer";
 
 export default class News extends React.Component {
     _newsService = NewsService.singleton();
@@ -41,6 +42,7 @@ export default class News extends React.Component {
                         </main>
                     </div>
                 }
+                <Footer/>
             </div>
         )
     }

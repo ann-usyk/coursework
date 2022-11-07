@@ -4,6 +4,7 @@ import stack from "./img/stakan.png";
 import koserv from "./img/konserva.png";
 import bottle from "./img/plasticBootle.png";
 import Modal from "./Modal";
+import Footer from "./Footer";
 
 
 export let counterTrash=0;

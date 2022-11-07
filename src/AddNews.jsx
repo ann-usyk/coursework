@@ -3,6 +3,7 @@ import './addnews.css'
 import {NewsService} from "./newsService";
 import {useNavigate, useParams} from "react-router-dom";
 import Toast from "./toast";
+import Footer from "./Footer";
 
 class AddNews extends React.Component {
     _newsService = NewsService.singleton();
@@ -105,7 +106,7 @@ class AddNews extends React.Component {
                    <input
                        type="button"
                        disabled={!this.valid}
-                       value="Додани новину"
+                       value="Зберегти"
                        onClick={() => this.save()}
                        style={{display:"block",width:"100%"}}
                    />

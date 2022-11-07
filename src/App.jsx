@@ -27,7 +27,7 @@ function App() {
                     <Route path="/news">
                         <Route index element={<News/>}/>
                         <Route path=":id" element={<ViewNews/>}/>
-                        <Route path=":id/edit" element={<AddNews/>}/>
+                         <Route path=":id/edit" element={<AddNews/>}/>
                         <Route path="new" element={<AddNews/>}/>
                     </Route>
                     <Route path="/carousel" element={<CarouselBox/>}/>

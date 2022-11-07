@@ -1,5 +1,6 @@
 import React from "react";
 import './newstemplate.css';
+import Footer from "../Footer";
 
 
 const NewsTemplate =({children})=>{
@@ -8,6 +9,7 @@ const NewsTemplate =({children})=>{
             <div className="news_template__content">
                 {children}
             </div>
+            <Footer/>
         </div>
     )
 }

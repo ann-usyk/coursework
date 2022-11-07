@@ -1,6 +1,7 @@
 import './home.css'
 import React from "react";
 import NewsTemplate from "./news/NewsTemplate";
+import Footer from "./Footer";
 
 const Header = ()=>{
     return(
