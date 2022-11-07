@@ -1,26 +1,118 @@
 import React from "react";
 import './addnews.css'
+import {NewsService} from "./newsService";
+import {useNavigate, useParams} from "react-router-dom";
+import Toast from "./toast";
 
-export default class AddNews extends React.Component {
-
+class AddNews extends React.Component {
+    _newsService = NewsService.singleton();
+    _id;
 
     constructor(props) {
         super(props);
+        this._id = props.id
+        this.state = {
+            data: {
+                title: '',
+                description: '',
+                img: '',
+                data: '',
+                created_at: null,
+                updated_at: null,
+            },
+            loading: false,
+        };
     }
-       render() {
+
+    async componentDidMount() {
+        if (this._id) {
+            this.setState(({...this.state, loading: true}))
+            let data = await this._newsService.getNewsById(this._id)
+            this.setState(({
+                ...this.state,
+                data,
+                loading: false,
+            }))
+        }
+    }
+
+    get news() {
+        return this.state.data;
+    }
+
+    handleNewsChange(key, value) {
+        let data = this.state.data;
+        this.setState({...this.state, data: {...data, [key]: value}});
+    }
+
+    get valid() {
+        let news = this.news;
+        return news.title.trim().length >= 5 &&
+            news.description.trim().length >= 5 &&
+            news.img.trim().length &&
+            news.data.trim().length;
+    }
+
+    async save() {
+        this.setState({...this.state, loading: true});
+        let news = this.news;
+        if (this._id) {
+            news.updated_at = new Date().getTime();
+            await this._newsService.updateNews(this._id, news);
+            Toast.singleton().show({type: 'success', text: 'Оновлено'})
+        } else {
+            news.created_at = news.updated_at = new Date().getTime();
+            await this._newsService.addNews(news);
+            Toast.singleton().show({type: 'success', text: 'Додано'})
+        }
+        this.setState({...this.state, loading: false});
+
+        this.props.navigate('/news');
+    }
+
+    render() {
         return (
             <div className="addnews_container">
                <div className="addnews_container--content">
-                   <div>Головний надпис новини</div>
-                   <input className="input_name" type="text"/>
+                   <div>Найменування новини</div>
+                   <input
+                       value={this.news.title}
+                       onChange={ev => this.handleNewsChange('title', ev.target.value)}
+                       className="input_name"
+                       type="text"
+                   />
+                   <div>Опис новини</div>
+                   <input
+                       value={this.news.description}
+                       onChange={ev => this.handleNewsChange('description', ev.target.value)}
+                       className="input_name"
+                       type="text"
+                   />
                    <div>Посилання на фото</div>
-                   <input className="input_img" inputMode="url"/>
+                   <input
+                       value={this.news.img}
+                       onChange={ev => this.handleNewsChange('img', ev.target.value)}
+                       className="input_img"
+                       inputMode="url"
+                   />
                    <div>Розмітка новини</div>
-                   <input className="input_marking" type="text"/>
-                   <input type="button" value="Text" style={{display:"block",width:"100%"}}></input>
+                   <textarea
+                       value={this.news.data}
+                       onChange={ev => this.handleNewsChange('data', ev.target.value)}
+                       className="input_marking"
+                       rows="6">
+                   </textarea>
+                   <input
+                       type="button"
+                       disabled={!this.valid}
+                       value="Додани новину"
+                       onClick={() => this.save()}
+                       style={{display:"block",width:"100%"}}
+                   />
                </div>
             </div>
         )
     }
 }
 
+export default (props) => <AddNews {...useParams()} navigate={useNavigate()} {...props} />
