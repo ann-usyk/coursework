@@ -2,18 +2,34 @@ import './header.css'
 import React from "react";
 import {ReactComponent as Home} from "../img/user.svg";
 import {NavLink, Outlet} from "react-router-dom";
-import Modal from "../Modal/Modal";
+import ModalLogin from "../Auth/ModalLogin";
+import {BigHead} from "@bigheads/core";
+import {AuthService} from "../Auth/authService";
 
 export default class Header extends React.Component {
     active = false;
     setActive = false;
+    login = false;
+    _authService = AuthService.singleton()
 
     constructor(props) {
         super(props);
         this.state = {
             active: this.active,
-            setActive: this.setActive
+            setActive: this.setActive,
+            login: this.login,
         }
+    }
+
+    checkLogin(){
+        console.log(this._authService.user())
+        if (localStorage.getItem("userID")?.length){
+            this.setState({...this.state, login: true});
+        }
+    }
+
+    async componentDidMount() {
+        await this.checkLogin()
     }
 
     render() {
@@ -61,21 +77,14 @@ export default class Header extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div style={{display: 'flex', flexDirection: 'row'}}>
-                            <div><Home className='div-svg'/></div>
-                            {/* <button className='button-login' onClick={()=>{
-                                console.log("OK")
-                                this.setState(({
-                                    ...this.state,
-                                    active:true,
-                                    setActive:true
-                                    }))}
-                            }>Гість</button>*/}
+                        <div className="nav-right-button">
+                            <div className="icon">
+                                {this.state.login?<BigHead/>:""}
+                            </div>
+                            <button className='button-login' onClick={()=>{
+                                 ModalLogin.singleton().show()
+                             }}>Гість</button>
                             <div style={{paddingRight: "30px"}}></div>
-                            <Modal active={this.active} setActive={this.setActive}>
-                                <input inputMode={"email"}/>
-                                <input inputMode={"text"}/>
-                            </Modal>
                         </div>
                     </div>
                 </nav>

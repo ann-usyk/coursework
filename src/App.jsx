@@ -14,6 +14,7 @@ import ZeroWaste3 from "./NewsPages/ZeroWaste3";
 import AddNews from "./NewsPages/AddNews";
 import ViewNews from "./NewsPages/ViewNews";
 import Toast from "./toast";
+import ModalLogin from "./Auth/ModalLogin";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                 </Route>
             </Routes>
             <Toast/>
+            <ModalLogin/>
         </div>
     );
 }

@@ -31,7 +31,7 @@ class ViewNews extends React.Component {
     async remove() {
         await this._newsService.destroyNews(this._id)
         Toast.singleton().show({type: 'warning', text: 'Видалено'})
-        this.props.navigate('/NewsPages');
+        this.props.navigate('/news');
     }
 
     render() {

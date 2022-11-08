@@ -21,12 +21,10 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
-.div-svg
+.icon
 {
-    height: 100%;
-    width: 30px;
-    padding: 0 20px;
-    fill: white;
+    width: 60px;
+    height: 60px;
 }
 .button-menu{
     appearance: none;
@@ -47,6 +45,10 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.nav-right-button{
+    display: flex;
+    flex-direction: row;
 }
 .button-login{
     -webkit-appearance: none;

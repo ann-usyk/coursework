@@ -67,7 +67,7 @@ class AddNews extends React.Component {
         }
         this.setState({...this.state, loading: false});
 
-        this.props.navigate('/NewsPages');
+        this.props.navigate('/news');
     }
 
     render() {

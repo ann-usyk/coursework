@@ -37,7 +37,8 @@ export default class News extends React.Component {
                     <div>
                         <main className='main-news'>
                             {this.list}
-                            <Element item={{title: 'Додати новину', img: 'https://static.thenounproject.com/png/1555710-200.png', id: 'new'}}>
+                            <Element
+                                item={{title: 'Додати новину', img: 'https://static.thenounproject.com/png/1555710-200.png', id: 'new'}}>
                             </Element>
                         </main>
                     </div>
