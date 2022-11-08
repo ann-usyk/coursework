@@ -1,6 +1,7 @@
 import React from "react";
 import * as bootstrap from 'bootstrap'
 import {AuthService} from "./authService";
+import {FcGoogle} from "react-icons/fc"
 
 export default class ModalLogin extends React.Component {
     static _instance;
@@ -21,7 +22,6 @@ export default class ModalLogin extends React.Component {
             status: "",
         }
     }
-
     componentDidMount() {
         this._el = new bootstrap.Modal('#exampleModalCenter')
     }
@@ -64,14 +64,18 @@ export default class ModalLogin extends React.Component {
                             {this.state.status}
                         </div>
 
-                        <button type="button" className="btn btn-secondary" onClick={()=>this.gg()} data-dismiss="modal">GG</button>
+                        <button type="button" className="btn btn-light" onClick={()=>this.gg()} data-dismiss="modal">
+                            <FcGoogle/>Увійти за допомогою Google
+                        </button>
+                        <button type="button" onClick={()=>{
+                            this.setState({...this.state, status: "Логін або пароль не співпадають"})
+                        }} className="btn btn-primary">Увійти</button>
+{/*
                         <button type="button" className="btn btn-secondary" onClick={()=>this.lo()} data-dismiss="modal">LO</button>
+*/}
 
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={()=>this.hide()} data-dismiss="modal">Закрити</button>
-                            <button type="button" onClick={()=>{
-                                this.setState({...this.state, status: "Логін або пароль не співпадають"})
-                            }} className="btn btn-primary">Увійти</button>
+
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,16 @@
+.nav-right-button{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+.nav-right-button:hover{
+    background-color: green;
+    transition: 0.8s;
+}
+.button-login-user{
+    background-color: transparent;
+    color:white;
+    border: 0;
+}
