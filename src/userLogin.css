@@ -1,11 +1,20 @@
-.nav-right-button{
+.user_login_main {
+    height: 100%;
+}
+.nav-right-button {
     display: flex;
     flex-direction: row;
     cursor: pointer;
+    font-size: 20px;
     padding-left: 10px;
     margin-right: 10px;
     border-radius: 6px;
-
+    justify-content: space-between;
+}
+.nav-right-button-content {
+    width: 150px;
+    align-items: center;
+    color: white;
 }
 .nav-right-button:hover{
     background-color: rgba(0,77,2,0.61);
@@ -16,6 +25,7 @@
     background-color: transparent;
     color:white;
     border: 0;
+
 }
 .img
 {
@@ -25,9 +35,4 @@
 .icon{
     display: flex;
     align-items: center;
-}
-.icon p{
-    color: white;
-    font-size: 20px;
-    margin-bottom: 0;
 }

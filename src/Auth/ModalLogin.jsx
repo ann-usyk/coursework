@@ -96,7 +96,7 @@ export default class ModalLogin extends React.Component {
                             </button>
                         </div>
 
-                        <div className="modal-body d-flex flex-column align-content-center">
+                        <div className="modal-body d-flex flex-column align-content-center" >
                             <label htmlFor="exampleInputEmail1" className="form-label">Логін</label>
                             <input type="email" className="form-control" value={this.state.login} onChange={ev => this.setState({...this.state, login: ev.target.value})} id="exampleInputEmail1" aria-describedby="emailHelp" />
                             <label htmlFor="exampleInputPassword1" className="form-label">Пароль</label>

@@ -36,7 +36,7 @@ export default class UserLogin extends React.Component{
         let user = this.state.user;
 
         return (
-            <div>
+            <div className="user_login_main">
                 {
                     this.state.loading &&
                     <div className="spinner-grow text-primary" style={{marginRight: '30px'}} role="status">
@@ -45,11 +45,12 @@ export default class UserLogin extends React.Component{
                 }
                 {
                     !user && !this.state.loading &&
-                    <div className="nav-right-button" onClick={() => this.login()}>
+                    <div className="nav-right-button nav-right-button-content" onClick={() => this.login()}>
                         <div className="icon">
-                            <p>Увійти|</p>
+                            <span>Увійти</span>
                         </div>
-                        <button className="button-login-user" style={{marginRight: '16px'}}>Гість</button>
+                        <span>|</span>
+                        <div className="button-login-user" style={{marginRight: '16px'}}>Гість</div>
                     </div>
                 }
                 {
@@ -73,7 +74,7 @@ export default class UserLogin extends React.Component{
                         </div>
                         <button className="button-login-user">{user.displayName || user.email}</button>
                         <button className="btn btn-sm" onClick={() => this.logout()}>
-                            <i className="fa fa-sign-out fs-3" ></i>
+                            <i className="fa fa-sign-out fs-3" style={{color:"white"}}></i>
                         </button>
                     </div>
                 }
