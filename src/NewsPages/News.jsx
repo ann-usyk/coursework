@@ -3,8 +3,10 @@ import React from "react";
 import Element from "./Element";
 import {NewsService} from "./newsService";
 import Footer from "../Footer/Footer";
+import {AuthService} from "../Auth/authService";
 
 export default class News extends React.Component {
+    _authService = AuthService.singleton();
     _newsService = NewsService.singleton();
 
     constructor(props) {
@@ -12,6 +14,7 @@ export default class News extends React.Component {
         this.state = {
             data: [],
             loading: true,
+            editor: false,
         };
     }
 
@@ -22,6 +25,9 @@ export default class News extends React.Component {
             data,
             loading: false,
         }))
+
+        this._authService.user()
+            .subscribe(user => setTimeout(() => this.setState(({...this.state, editor: !!user}))))
     }
 
     get list() {
@@ -37,9 +43,12 @@ export default class News extends React.Component {
                     <div>
                         <main className='main-news'>
                             {this.list}
-                            <Element
-                                item={{title: 'Додати новину', img: 'https://static.thenounproject.com/png/1555710-200.png', id: 'new'}}>
-                            </Element>
+                            {
+                                this.state.editor &&
+                                <Element
+                                    item={{title: 'Додати новину', img: 'https://static.thenounproject.com/png/1555710-200.png', id: 'new'}}>
+                                </Element>
+                            }
                         </main>
                     </div>
                 }

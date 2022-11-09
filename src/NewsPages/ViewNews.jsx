@@ -5,8 +5,10 @@ import React from "react";
 import {NewsService} from "./newsService";
 import NewsTemplate from "./NewsTemplate";
 import Toast from "../toast";
+import {AuthService} from "../Auth/authService";
 
 class ViewNews extends React.Component {
+    _authService = AuthService.singleton();
     _newsService = NewsService.singleton();
     _id;
 
@@ -16,6 +18,7 @@ class ViewNews extends React.Component {
         this.state = {
             data: null,
             loading: true,
+            editor: false,
         };
     }
 
@@ -26,6 +29,9 @@ class ViewNews extends React.Component {
             data,
             loading: false,
         }))
+
+        this._authService.user()
+            .subscribe(user => setTimeout(() => this.setState(({...this.state, editor: !!user}))))
     }
 
     async remove() {
@@ -43,12 +49,15 @@ class ViewNews extends React.Component {
                     !this.state.loading &&
                     <div>
                         <NewsTemplate>
-                            <div>
-                                <NavLink to="edit">
-                                    <button type="button" className="btn btn-primary">Редагувати</button>
-                                </NavLink>
-                                <button type="button" onDoubleClick={() => this.remove()} className="btn btn-danger">Видалити</button>
-                            </div>
+                            {
+                                this.state.editor &&
+                                <div>
+                                    <NavLink to="edit">
+                                        <button type="button" className="btn btn-primary">Редагувати</button>
+                                    </NavLink>
+                                    <button type="button" onDoubleClick={() => this.remove()} className="btn btn-danger">Видалити</button>
+                                </div>
+                            }
 
                             <div className="text-muted">
                                 <span>added: {moment(news.created_at).calendar()}</span>,

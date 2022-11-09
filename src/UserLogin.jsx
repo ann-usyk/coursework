@@ -6,37 +6,77 @@ import {AuthService} from "./Auth/authService";
 
 
 export default class UserLogin extends React.Component{
-    login = true;
     _authService = AuthService.singleton()
-
 
     constructor(props) {
         super(props);
         this.state = {
-            login: this.login,
-        }
-    }
-    checkLogin(){
-        console.log(this._authService.user())
-        if (this._authService.user()){
-            this.setState({...this.state, login: true});
+            loading: true,
+            user: null,
         }
     }
 
     componentDidMount() {
-        this.checkLogin()
+        this._authService.user()
+            .subscribe(user => {
+                this.setState({...this.state, user, loading: false});
+            })
+    }
+
+    login() {
+        ModalLogin.singleton().show()
+    }
+
+    logout() {
+        this.setState({...this.state, loading: true})
+        this._authService.logout()
     }
 
     render() {
+        let user = this.state.user;
+
         return (
-            <div className="nav-right-button" onClick={()=>{
-                ModalLogin.singleton().show()
-            }}>
-                <div className="icon">
-                    {this.login ? <BigHead/>:""}
-                </div>
-                <button className='button-login-user' >Гість</button>
-                <div style={{paddingRight: "30px"}}></div>
+            <div>
+                {
+                    this.state.loading &&
+                    <div className="spinner-grow text-primary" style={{marginRight: '30px'}} role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                }
+                {
+                    !user && !this.state.loading &&
+                    <div className="nav-right-button" onClick={() => this.login()}>
+                        <div className="icon">
+                            <p>Увійти|</p>
+                        </div>
+                        <button className="button-login-user" style={{marginRight: '16px'}}>Гість</button>
+                    </div>
+                }
+                {
+                    user && !this.state.loading &&
+                    <div className="nav-right-button">
+                        <div className="icon">
+                            {
+                                user.photoURL &&
+                                <div style={{width: '52px',
+                                    height: '52px',
+                                    position: 'relative',
+                                    borderRadius: '50%',
+                                    overflow: 'hidden',
+                                    margin: '4px auto auto'}}>
+                                    <img src={user.photoURL} alt="" style={{width: '52px', height: '52px'}} />
+                                </div>
+                            }
+                            {
+                                !user.photoURL && <BigHead/>
+                            }
+                        </div>
+                        <button className="button-login-user">{user.displayName || user.email}</button>
+                        <button className="btn btn-sm" onClick={() => this.logout()}>
+                            <i className="fa fa-sign-out fs-3" ></i>
+                        </button>
+                    </div>
+                }
             </div>
         )
     }

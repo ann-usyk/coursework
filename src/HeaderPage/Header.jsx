@@ -1,37 +1,14 @@
 import './header.css'
 import React from "react";
 import {NavLink, Outlet} from "react-router-dom";
-import {AuthService} from "../Auth/authService";
 import UserLogin from "../UserLogin";
 
 export default class Header extends React.Component {
-    active = false;
-    setActive = false;
-    login = true;
-    _authService = AuthService.singleton()
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: this.active,
-            setActive: this.setActive,
-            login: this.login,
-        }
-    }
-
-    checkLogin(){
-        console.log(this._authService.user())
-        if (this._authService.user()){
-            this.setState({...this.state, login: true});
-        }
-    }
 
     async componentDidMount() {
-        await this.checkLogin()
     }
 
     render() {
-
         return (
             <div>
                 <div className="burger-button-container">

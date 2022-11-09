@@ -2,15 +2,32 @@
     display: flex;
     flex-direction: row;
     cursor: pointer;
+    padding-left: 10px;
     margin-right: 10px;
     border-radius: 6px;
+
 }
 .nav-right-button:hover{
-    background-color: green;
+    background-color: rgba(0,77,2,0.61);
     transition: 0.8s;
+
 }
 .button-login-user{
     background-color: transparent;
     color:white;
     border: 0;
+}
+.img
+{
+    display: flex;
+
+}
+.icon{
+    display: flex;
+    align-items: center;
+}
+.icon p{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 0;
 }

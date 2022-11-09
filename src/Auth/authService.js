@@ -5,10 +5,13 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
 } from "firebase/auth";
+import {ReplaySubject} from "rxjs";
 import {getFireAuth} from "../firebase/auth";
 
 export class AuthService {
     _auth;
+    _user;
+    $user = new ReplaySubject(1);
     static _instance;
 
     /**
@@ -24,70 +27,44 @@ export class AuthService {
 
     constructor() {
         this._auth = getFireAuth();
+        this._auth.onAuthStateChanged(user => this._setUser(user), err => {})
+    }
+
+    _setUser(user) {
+        this.$user.next(this._user = user)
     }
 
     user() {
-        this._auth.onAuthStateChanged(user => {
-            console.log(5, user)
-        }, err => {
-
-        })
-        console.log(3, this._auth.currentUser)
-        setTimeout(() => console.log(2, this._auth.currentUser), 2000)
-        return this._auth.currentUser
+        return this.$user.asObservable()
     }
 
-    register(email, password) {
-        createUserWithEmailAndPassword(this._auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
+    async register(email, password) {
+        try {
+            let userCredential = await createUserWithEmailAndPassword(this._auth, email, password)
+            return userCredential.user
+        } catch (e) {
+            return null
+        }
     }
 
-    loginByUserPassword(email, password) {
-        signInWithEmailAndPassword(this._auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+    async loginByUserPassword(email, password) {
+        try {
+            let userCredential = await signInWithEmailAndPassword(this._auth, email, password)
+            return userCredential.user
+        } catch (e) {
+            return null
+        }
     }
 
-    loginByGoogle() {
+    async loginByGoogle() {
         const provider = new GoogleAuthProvider();
 
-        signInWithPopup(this._auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                // ...
-
-                console.log(1, user)
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
-            });
+        try {
+            let result = await signInWithPopup(this._auth, provider)
+            return result.user;
+        } catch (e) {
+            return null
+        }
     }
 
     logout() {
