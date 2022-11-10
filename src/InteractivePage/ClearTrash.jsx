@@ -7,8 +7,8 @@ import Modal from "../Modal/Modal";
 
 export let counterTrash=0;
 
-const ClearTrash =({active,setActive})=>{
-    const [modalActive,setModalActive] = useState(false)
+const ClearTrash =({active,setActive})=> {
+    const [modalActive,setModalActive] = useState(false);
 
     function clearChaff(ev)
     {

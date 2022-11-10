@@ -4,7 +4,7 @@ import 'moment/locale/uk'
 import renderRoot from "./main";
 import {initFireApp} from "./firebase";
 
-moment.locale('uk')
+moment.locale('ua')
 
 initFireApp();
 

@@ -1,3 +1,13 @@
 .main{
     width: 100%;
 }
+
+@font-face {
+    font-family: "Nature";
+    src: url("Nature.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Nature";
+    src: url("Nature.ttf") format("truetype");
+}
+

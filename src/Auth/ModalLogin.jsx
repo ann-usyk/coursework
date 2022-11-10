@@ -131,11 +131,11 @@ export default class ModalLogin extends React.Component {
                                 <div className="col-12 d-flex justify-content-center">
                                     {
                                         this.state.type === 'login' &&
-                                        <span>без аккаунта - <button type="button" className="btn btn-link" onClick={() => this.changeType('register')}>іди рееструйся</button></span>
+                                        <span>Немає аккаунта? - <button type="button" className="btn btn-link" onClick={() => this.changeType('register')}>Зареєструватися</button></span>
                                     }
                                     {
                                         this.state.type === 'register' &&
-                                        <span>я маю акк - <button type="button" className="btn btn-link" onClick={() => this.changeType('login')}>логінійся</button></span>
+                                        <span>Я маю обліковий запис - <button type="button" className="btn btn-link" onClick={() => this.changeType('login')}>Увійти</button></span>
                                     }
                                 </div>
                             </div>
