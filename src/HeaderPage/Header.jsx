@@ -5,8 +5,6 @@ import UserLogin from "../UserLogin";
 
 export default class Header extends React.Component {
 
-    async componentDidMount() {
-    }
 
     render() {
         return (
@@ -32,23 +30,40 @@ export default class Header extends React.Component {
                             }
                         }
                     }}>
-                        <div className='div-link'
-                             style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
-                            <button className='button-menu button-logo'>ECO-Army</button>
-                            <NavLink end className='button-menu ' to={'/'}>Головна</NavLink>
-                            <NavLink to="/clearTrash" className='button-menu  '>Інтерактив</NavLink>
-                            <NavLink to="/news" className='button-menu '>Новини</NavLink>
-                            <NavLink to="/carousel" className='button-menu '>Фотогалерея</NavLink>
+                        <div className='div-link' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                            <button
+                                className='button-menu button-logo'>
+                                ECO-Army
+                            </button>
+                            <NavLink end className='button-menu ' to={'/'}>
+                                Головна
+                            </NavLink>
+                            <NavLink to="/clearTrash" className='button-menu'>
+                                Інтерактив
+                            </NavLink>
+                            <NavLink to="/news" className='button-menu '>
+                                Новини
+                            </NavLink>
+                            <NavLink to="/carousel" className='button-menu '>
+                                Фотогалерея
+                            </NavLink>
                             <div className="dropdown ">
                                 <button onClick={() => {
                                     document.getElementById("myDropdown").classList.toggle("show")
-                                }} className="dropbtn">
+                                    }
+                                } className="dropbtn">
                                     Zero waste
                                 </button>
                                 <div id="myDropdown" className="dropdown-content">
-                                    <NavLink to="/alliance" className='button-menu '>Zero Waste Alliance</NavLink>
-                                    <NavLink to="/what_we_do" className='button-menu '>Що ми робимо</NavLink>
-                                    <NavLink to="/cities" className='button-menu '>Zero Waste Cities</NavLink>
+                                    <NavLink to="/alliance" className='button-menu '>
+                                        Zero Waste Alliance
+                                    </NavLink>
+                                    <NavLink to="/what_we_do" className='button-menu '>
+                                        Що ми робимо
+                                    </NavLink>
+                                    <NavLink to="/cities" className='button-menu '>
+                                        Zero Waste Cities
+                                    </NavLink>
                                 </div>
                             </div>
                         </div>

@@ -60,13 +60,13 @@ class ViewNews extends React.Component {
                             }
 
                             <div className="text-muted">
-                                <span>added: {moment(news.created_at).calendar()}</span>,
-                                <span>updated: {moment(news.updated_at).calendar()}</span>
+                                <span>Додано: {moment(news.created_at).calendar()}</span>,
+                                <span>Оновлено: {moment(news.updated_at).calendar()}</span>
                             </div>
 
                             <h1>{news.title}</h1>
                             <img src={news.img} alt={news.title} />
-                            <div dangerouslySetInnerHTML={{__html: news.data}}></div>
+                            <div dangerouslySetInnerHTML={{__html: news.data}}></div> {/*import info from db to html*/}
                         </NewsTemplate>
                     </div>
                 }

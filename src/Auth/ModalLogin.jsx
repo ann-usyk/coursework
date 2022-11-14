@@ -54,7 +54,7 @@ export default class ModalLogin extends React.Component {
             return
         }
 
-        this.setState({...this.state, status: "Шось пошло не так"})
+        this.setState({...this.state, status: "Щось пішло не так"})
     }
 
     async login() {
@@ -80,7 +80,7 @@ export default class ModalLogin extends React.Component {
             return
         }
 
-        this.setState({...this.state, status: "Шось пошло не так"})
+        this.setState({...this.state, status: "Щось пішло не так"})
     }
 
     render() {
@@ -121,7 +121,7 @@ export default class ModalLogin extends React.Component {
                             <div className="row" style={{margin: '0 5px 16px'}}>
                                 <div className="col-12 d-flex justify-content-between">
                                     <div></div>
-                                    <button type="button" onClick={() => this.register()} disabled={!this.valid} className="btn btn-primary">рееструвався</button>
+                                    <button type="button" onClick={() => this.register()} disabled={!this.valid} className="btn btn-primary">Зареєстрований</button>
                                 </div>
                             </div>
                         }

@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import * as moment from "moment";
 
 
-class Hello extends React.Component {
+class Element extends React.Component {
 
     render() {
         return <NavLink to={this.props.item.id}>
@@ -35,4 +35,4 @@ class Hello extends React.Component {
         </NavLink>
     }
 }
-export default Hello;
+export default Element;

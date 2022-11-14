@@ -37,7 +37,7 @@ export default class News extends React.Component {
     render() {
         return (
             <div>
-                {this.state.loading && <div>12345678</div>}
+                {this.state.loading && <div>Loading</div>}
                 {
                     !this.state.loading &&
                     <div>
